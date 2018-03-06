@@ -1,4 +1,4 @@
-/*
+/*favorites:
  * BrowserView.java
  * :tabSize=4:indentSize=4:noTabs=false:
  * :folding=explicit:collapseFolds=1:
@@ -19,7 +19,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-
+//Edit Favorites
 package org.gjt.sp.jedit.browser;
 
 //{{{ Imports

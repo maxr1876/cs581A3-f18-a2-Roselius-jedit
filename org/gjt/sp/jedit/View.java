@@ -1047,7 +1047,22 @@ public class View extends JFrame implements InputHandlerProvider
 		else
 			return editPane.getTextArea();
 	} //}}}
-
+	
+	public boolean scrollShowing = true;
+	//Hides scroll bars for ALL current editPanes
+	public void hideScrollBars() {
+		for (EditPane pane : getEditPanes()) {
+			pane.getTextArea().hideScrollBars();
+		}
+		scrollShowing = false;
+	}
+	
+	public void unHideScrollBars() {
+		for (EditPane pane : getEditPanes()) {
+			pane.getTextArea().unHideScrollBars();
+		}
+		scrollShowing = true;
+	}
 	//{{{ getEditPane() method
 	/**
 	 * Returns the current edit pane.

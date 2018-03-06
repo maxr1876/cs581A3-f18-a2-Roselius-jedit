@@ -660,7 +660,7 @@
 
         <para>Keyboard commands for scrolling the text area are also
         available.</para>
-
+        
         <para><guimenu>View</guimenu>&gt;<guisubmenu>Scrolling</guisubmenu>&gt;<guimenuitem>Scroll
         to Current Line</guimenuitem> (shortcut: <keycap>C+e C+j</keycap>)
         scrolls the text area in order to make the caret visible, if necessary.
@@ -669,7 +669,7 @@
         <para><guimenu>View</guimenu>&gt;<guisubmenu>Scrolling</guisubmenu>&gt;<guimenuitem>Center
         Caret on Screen</guimenuitem> (shortcut: <keycap>C+e C+n</keycap>) moves
         the caret to the line in the middle of the screen.</para>
-
+        
         <para><guimenu>View</guimenu>&gt;<guisubmenu>Scrolling</guisubmenu>&gt;<guimenuitem>Line
         Scroll Up</guimenuitem> (shortcut: <keycap>C+QUOTE</keycap>) scrolls the
         text area up by one line.</para>

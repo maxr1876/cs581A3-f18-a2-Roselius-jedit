@@ -116,7 +116,6 @@ public abstract class TextArea extends JPanel
 		add(ScrollLayout.BOTTOM, new JLayer<JComponent>(
 			horizontal = new JScrollBar(Adjustable.HORIZONTAL), reqFocus));
 		horizontal.setRequestFocusEnabled(false);
-
 		horizontal.setValues(0,0,0,0);
 		//}}}
 
@@ -157,7 +156,14 @@ public abstract class TextArea extends JPanel
 	{
 		return new TriangleFoldPainter();
 	} //}}}
-
+	public void hideScrollBars() {
+		vertical.setVisible(false);
+		horizontal.setVisible(false);
+	}
+	public void unHideScrollBars() {
+		vertical.setVisible(true);
+		horizontal.setVisible(true);
+	}
 	//{{{ initInputHandler() method
 	/**
 	 * Creates an actionContext and initializes the input

@@ -25,6 +25,9 @@ package org.gjt.sp.jedit.io;
 
 //{{{ Imports
 import java.awt.Component;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.*;
 
 import org.gjt.sp.jedit.msg.DynamicMenuChanged;
@@ -47,6 +50,7 @@ public class FavoritesVFS extends VFS
 	//{{{ FavoritesVFS constructor
 	public FavoritesVFS()
 	{
+		
 		super("favorites",DELETE_CAP | RENAME_CAP | LOW_LATENCY_CAP
 			| NON_AWT_SESSION_CAP,
 			new String[] { EA_TYPE });
@@ -222,7 +226,7 @@ public class FavoritesVFS extends VFS
 		}
 	} //}}}
 
-	//{{{ Private members
+	//{{{ Private members Edit Favorites
 	private static FavoritesVFS instance;
 	private static final Object lock = new Object();
 	private static List<Favorite> favorites;
@@ -235,8 +239,10 @@ public class FavoritesVFS extends VFS
 
 		Favorite(String path, int type)
 		{
-			super(path,path,PROTOCOL + ':' + path,type, 0L,false);
-			this.label = MiscUtilities.abbreviateView(path);
+			super(path.split(File.separator)[path.split(File.separator).length-1],path,PROTOCOL + ':' + path,type, 0L,false);
+			this.label = MiscUtilities.abbreviateView(path);//Name
+			
+			
 		}
 
 		public String getLabel()

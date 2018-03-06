@@ -179,7 +179,7 @@ public class FilePropertiesDialog extends EnhancedDialog
 		if (local instanceof FavoritesVFS.Favorite)
 		{
 			FavoritesVFS.Favorite favorite = (FavoritesVFS.Favorite) local;
-			filename = favorite.getLabel();
+			filename = favorite.getName();
 		}
 		else
 		{

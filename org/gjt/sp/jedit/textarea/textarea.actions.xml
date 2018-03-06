@@ -679,6 +679,7 @@
 	</IS_SELECTED>
 </ACTION>
 
+
 <ACTION NAME="toggle-multi-select">
 	<CODE>
 		textArea.toggleMultipleSelectionEnabled();

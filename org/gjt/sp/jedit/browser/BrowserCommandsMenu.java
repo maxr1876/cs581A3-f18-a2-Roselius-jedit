@@ -40,7 +40,7 @@ import org.gjt.sp.util.GenericGUIUtilities;
  * @version $Id$
  * @author Slava Pestov and Jason Ginchereau
  */
-public class BrowserCommandsMenu extends JPopupMenu
+public class BrowserCommandsMenu extends JPopupMenu//JScrollBar
 {
 	//{{{ BrowserCommandsMenu constructor
 	public BrowserCommandsMenu(VFSBrowser browser, VFSFile[] files)
