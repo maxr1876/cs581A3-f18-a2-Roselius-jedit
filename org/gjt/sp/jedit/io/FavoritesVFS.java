@@ -269,4 +269,10 @@ public class FavoritesVFS extends VFS
 			return VFSManager.getVFSForProtocol(FavoritesVFS.PROTOCOL);
 		}
 	} //}}}
+
+	public void setPath(final String path, Buffer buffer) {
+		buffer.setFile(null);
+		buffer.setAutosaveFile(null);
+		buffer.setSymlinkPath(path);
+	}
 }

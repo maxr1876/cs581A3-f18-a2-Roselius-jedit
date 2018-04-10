@@ -644,4 +644,12 @@ public class FileVFS extends VFS
 	//{{{ Private members
 	private static FileSystemView fsView = null;
 	//}}}
+
+	public void setPath(final String path, Buffer buffer) {
+		buffer.setFile(new File(path));
+		buffer.setSymlinkPath(MiscUtilities.resolveSymlinks(path));
+		if (buffer.getAutosaveFile() != null)
+			buffer.getAutosaveFile().delete();
+		buffer.setAutosaveFile(new File(buffer.getFile().getParent(), '#' + buffer.getName() + '#'));
+	}
 }

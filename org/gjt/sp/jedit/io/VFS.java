@@ -1328,5 +1328,7 @@ public abstract class VFS
 		public Object get() { return session; }
 	} //}}}
 
+	public abstract void setPath(final String path, Buffer buffer);
+
 	//}}}
 }

@@ -1884,25 +1884,7 @@ public class Buffer extends JEditBuffer
 		name = vfs.getFileName(path);
 		directory = vfs.getParentOfPath(path);
 
-		if(vfs instanceof FileVFS)
-		{
-			file = new File(path);
-			symlinkPath = MiscUtilities.resolveSymlinks(path);
-
-			// if we don't do this, the autosave file won't be
-			// deleted after a save as
-			if(autosaveFile != null)
-				autosaveFile.delete();
-			autosaveFile = new File(file.getParent(),'#' + name + '#');
-		}
-		else
-		{
-			// I wonder if the lack of this broke anything in the
-			// past?
-			file = null;
-			autosaveFile = null;
-			symlinkPath = path;
-		}
+		vfs.setPath(path, this);
 	} //}}}
 
 
@@ -2217,6 +2199,18 @@ public class Buffer extends JEditBuffer
 			}
 		} //}}}
 	} //}}}
+
+	public void setFile(File file) {
+		this.file = file;
+	}
+
+	public void setSymlinkPath(String symlinkPath) {
+		this.symlinkPath = symlinkPath;
+	}
+
+	public void setAutosaveFile(File autosaveFile) {
+		this.autosaveFile = autosaveFile;
+	}
 
 	//}}}
 }

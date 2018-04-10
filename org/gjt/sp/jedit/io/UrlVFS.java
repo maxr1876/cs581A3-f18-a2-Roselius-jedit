@@ -26,6 +26,7 @@ package org.gjt.sp.jedit.io;
 import java.awt.Component;
 import java.io.*;
 import java.net.*;
+import org.gjt.sp.jedit.Buffer;
 import org.gjt.sp.util.Log;
 //}}}
 
@@ -101,4 +102,10 @@ public class UrlVFS extends VFS
 			return super.getFilePath(vfsPath);
 		}
 	} //}}}
+
+	public void setPath(final String path, Buffer buffer) {
+		buffer.setFile(null);
+		buffer.setAutosaveFile(null);
+		buffer.setSymlinkPath(path);
+	}
 }

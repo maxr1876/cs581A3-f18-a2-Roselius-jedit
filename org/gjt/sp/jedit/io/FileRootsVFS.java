@@ -29,6 +29,7 @@ import javax.swing.filechooser.FileSystemView;
 import java.awt.Component;
 import java.io.File;
 import java.util.LinkedList;
+import org.gjt.sp.jedit.Buffer;
 import org.gjt.sp.jedit.MiscUtilities;
 import org.gjt.sp.jedit.OperatingSystem;
 //}}}
@@ -171,4 +172,10 @@ public class FileRootsVFS extends VFS
 			}
 		}
 	} //}}}
+
+	public void setPath(final String path, Buffer buffer) {
+		buffer.setFile(null);
+		buffer.setAutosaveFile(null);
+		buffer.setSymlinkPath(path);
+	}
 }
