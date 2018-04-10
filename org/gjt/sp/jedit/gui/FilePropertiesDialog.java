@@ -252,7 +252,7 @@ public class FilePropertiesDialog extends EnhancedDialog
 	//{{{ createSouthPanel() method
 	public JPanel createSouthPanel()
 	{
-		return filePropertiesDialogProduct.createSouthPanel(this);
+		return filePropertiesDialogProduct.createSouthPanel(this);// refactored
 	} //}}}
 
 	//{{{ ok() method
