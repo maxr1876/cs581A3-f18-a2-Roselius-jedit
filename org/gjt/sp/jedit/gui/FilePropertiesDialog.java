@@ -53,6 +53,7 @@ import org.gjt.sp.util.StandardUtilities;
  */
 public class FilePropertiesDialog extends EnhancedDialog
 {
+	private FilePropertiesDialogProduct filePropertiesDialogProduct = new FilePropertiesDialogProduct();
 	private final VFSBrowser browser;
 	private final VFSFile[] selectedFiles;
 	private final VFSFile local;
@@ -95,7 +96,7 @@ public class FilePropertiesDialog extends EnhancedDialog
 			content.add(BorderLayout.NORTH, createNorthPanelAll());
 			content.add(BorderLayout.CENTER, createCenterPanelAll());
 		}
-		content.add(BorderLayout.SOUTH, createSouthPanel());
+		content.add(BorderLayout.SOUTH, filePropertiesDialogProduct.createSouthPanel(this));
 	} //}}}
 
 	//{{{createNorthPanelAll() method
@@ -251,27 +252,7 @@ public class FilePropertiesDialog extends EnhancedDialog
 	//{{{ createSouthPanel() method
 	public JPanel createSouthPanel()
 	{
-		ButtonActionHandler actionHandler = new ButtonActionHandler();
-		
-		JPanel panel = new JPanel();
-		panel.setLayout(new BoxLayout(panel,BoxLayout.X_AXIS));
-		panel.setBorder(BorderFactory.createEmptyBorder(17, 0, 0, 0));
-		
-		okButton = new JButton(jEdit.getProperty("fileprop.okBtn"));
-		okButton.addActionListener(actionHandler);
-		getRootPane().setDefaultButton(okButton);
-		
-		cancelButton = new JButton(jEdit.getProperty("fileprop.cancelBtn"));
-		cancelButton.addActionListener(actionHandler);
-
-		GenericGUIUtilities.makeSameSize(okButton, cancelButton);
-
-		panel.add(Box.createGlue());
-		panel.add(okButton);
-		panel.add(Box.createHorizontalStrut(6));
-		panel.add(cancelButton);
-
-		return panel;
+		return filePropertiesDialogProduct.createSouthPanel(this);
 	} //}}}
 
 	//{{{ ok() method
@@ -299,9 +280,6 @@ public class FilePropertiesDialog extends EnhancedDialog
 		setVisible(false);
 	} //}}}
 
-	//{{{ Private members
-	private JButton okButton;
-	private JButton cancelButton;
 	private JTextField nameTextField;
 	private JLabel infoIcon;
 	private JCheckBox readable;
@@ -322,18 +300,18 @@ public class FilePropertiesDialog extends EnhancedDialog
 	} //}}}
 
 	//{{{ ButtonActionHandler class
-	private class ButtonActionHandler implements ActionListener
+	protected class ButtonActionHandler implements ActionListener
 	{
 		public void actionPerformed(ActionEvent evt)
 		{
 			Object source = evt.getSource();
 
 
-			if(source == okButton)
+			if(source == filePropertiesDialogProduct.getOkButton())
 			{
 				ok();
 			}
-			else if(source == cancelButton)
+			else if(source == filePropertiesDialogProduct.getCancelButton())
 			{
 				cancel();
 			}

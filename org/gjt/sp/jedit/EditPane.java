@@ -30,8 +30,6 @@ import java.awt.Graphics2D;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -63,6 +61,8 @@ import org.gjt.sp.jedit.textarea.TextAreaTransferHandler;
 import org.gjt.sp.util.SyntaxUtilities;
 import org.gjt.sp.util.ThreadUtilities;
 //}}}
+
+import com.sun.istack.internal.NotNull;
 
 /**
  * A panel containing a text area.<p>
@@ -135,7 +135,7 @@ public class EditPane extends JPanel implements BufferSetListener
 	 * @param buffer The buffer to edit.
 	 * @since jEdit 2.5pre2
 	 */
-	public void setBuffer(@Nonnull Buffer buffer)
+	public void setBuffer(@NotNull Buffer buffer)
 	{
 		setBuffer(buffer, true);
 	}
@@ -146,7 +146,7 @@ public class EditPane extends JPanel implements BufferSetListener
 	 * @param requestFocus true if the textarea should request focus, false otherwise
 	 * @since jEdit 4.3pre6
 	 */
-	public void setBuffer(@Nonnull final Buffer buffer, boolean requestFocus)
+	public void setBuffer(@NotNull final Buffer buffer, boolean requestFocus)
 	{
 		if(buffer == null)
 			throw new NullPointerException("The buffer cannot be null");
@@ -770,7 +770,7 @@ public class EditPane extends JPanel implements BufferSetListener
 	//{{{ Package-private members
 
 	//{{{ EditPane constructor
-	EditPane(@Nonnull View view, @Nullable BufferSet bufferSetSource, @Nonnull Buffer buffer)
+	EditPane(@NotNull View view, @com.sun.istack.internal.Nullable BufferSet bufferSetSource, @NotNull Buffer buffer)
 	{
 		super(new BorderLayout());
 		BufferSet.Scope scope = jEdit.getBufferSetManager().getScope();

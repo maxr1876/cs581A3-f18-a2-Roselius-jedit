@@ -46,8 +46,6 @@ import java.util.Stack;
 
 import java.util.TreeSet;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -95,6 +93,9 @@ import org.gjt.sp.util.GenericGUIUtilities;
 import org.gjt.sp.util.Log;
 import org.gjt.sp.util.StandardUtilities;
 //}}}
+
+import com.sun.istack.internal.NotNull;
+import com.sun.istack.internal.Nullable;
 
 /**
  * A <code>View</code> is jEdit's top-level frame window.<p>
@@ -2014,12 +2015,12 @@ loop:		while (true)
 	} //}}}
 
 	//{{{ createEditPane() methods
-	private EditPane createEditPane(@Nonnull Buffer buffer)
+	private EditPane createEditPane(@NotNull Buffer buffer)
 	{
 		return createEditPane(null, buffer);
 	}
 
-	private EditPane createEditPane(@Nullable BufferSet bufferSetSource, @Nonnull Buffer buffer)
+	private EditPane createEditPane(@Nullable BufferSet bufferSetSource, @NotNull Buffer buffer)
 	{
 		EditPane editPane = new EditPane(this, bufferSetSource, buffer);
 		JEditTextArea textArea = editPane.getTextArea();

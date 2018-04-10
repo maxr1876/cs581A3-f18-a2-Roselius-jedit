@@ -40,8 +40,6 @@ import java.awt.*;
 import org.gjt.sp.jedit.View.ViewConfig;
 import org.gjt.sp.jedit.bsh.UtilEvalError;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.*;
 import java.awt.event.*;
 import java.io.*;
@@ -53,6 +51,9 @@ import java.util.List;
 import java.lang.reflect.InvocationTargetException;
 
 import org.xml.sax.SAXParseException;
+
+import com.sun.istack.internal.NotNull;
+import com.sun.istack.internal.Nullable;
 
 import org.gjt.sp.jedit.bufferio.BufferIORequest;
 import org.gjt.sp.jedit.buffer.KillRing;
@@ -4043,7 +4044,7 @@ public class jEdit
 
 	} //}}}
 
-	@Nonnull
+	@NotNull
 	private static String getPLAFClassName(@Nullable String lf)
 	{
 		if (lf != null && lf.length() != 0)
